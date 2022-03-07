@@ -1,0 +1,69 @@
+#include<stdio.h>
+void search(int n,int key,int arr[])
+{
+    int l=0,h=n-1;
+    if(arr[l]==key)
+    {
+        printf("key found!!!!"); 
+    }
+    else if(arr[h]==key)
+    {
+        printf("key found!!!!");
+    }
+    else if(arr[h]<key)
+    {
+        printf("key Not found!!!!");
+    }
+    else
+    {
+        l=1;
+        int k;
+        while(l<h)
+        {
+            if(arr[l]>=key)
+            {
+                k=l;
+                break;
+            }
+            else
+            {
+                l=l*2;
+            }
+        }
+        int low, high;
+        low = k/2;
+        high = k;
+        int flag=0;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==key)
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if(flag==1)
+            {
+                printf("KEY FOUND!!!!");
+            }
+        else
+            {
+                printf("KEY NOT FOUND!!!!");
+            }
+    }
+}
+int main()
+{
+    int n,i,key;
+    printf("Enter no. of elements: ");
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter elements: ");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Enter the key value you want to search: ");
+    scanf("%d",&key);
+    search(n,key,arr);
+}
