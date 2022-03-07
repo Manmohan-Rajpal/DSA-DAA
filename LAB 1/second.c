@@ -6,25 +6,25 @@ void search(int n,int key,int array[])
   high = n - 1;
   mid = (low+high)/2;
   int comp=0;
-  while (low < high) 
+  while (low <= high) 
   {
      comp=comp+1;
      mid = (low+high)/2;
-     if(array[mid] < key)
-     {
-         low = mid;
-     }
-     else if (array[mid] == key)
+     if (array[mid] == key)
      {
         printf("Key found!!!\n");
         break;
      }
+     else if(array[mid] < key)
+     {
+         low = mid+1;
+     }
      else
      {
-         high = mid;
+         high = mid-1;
      }
   }
-  if(low >= high)
+  if(low > high)
   {
       printf("Key Not found!!!!!\n");
   }
