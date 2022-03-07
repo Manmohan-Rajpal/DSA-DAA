@@ -22,14 +22,15 @@ void search(int n,int key,int arr[])
         {
             if(arr[l]>=key)
             {
-                k=l;
                 break;
             }
-            else
-            {
-                l=l*2;
-            }
+            l=l*2;
         }
+        if(l>h)
+        {
+          l=h;
+        }
+        l=k;
         int low, high;
         low = k/2;
         high = k;
